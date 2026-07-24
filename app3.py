@@ -1,10 +1,16 @@
-#Q.9
 import streamlit as st
 import pandas as pd
 import joblib
+import os
 
-model = joblib.load("heart_model.pkl")
-columns = joblib.load("columns.pkl")
+# Folder where app2.py is located
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Load files using absolute paths
+model = joblib.load(os.path.join(BASE_DIR, "heart_model.pkl"))
+columns = joblib.load(os.path.join(BASE_DIR, "columns.pkl"))
+
+
 
 st.title("Heart Disease Prediction System")
 
